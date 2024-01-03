@@ -1,0 +1,61 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #bf5dc1;
+    color: #897f7f;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  body {
+    background-color: #D6A7D6;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    text-shadow: 1px 1px #ffffff;
+    background-image: url("windows95-wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  
+  nav {
+    background-color: #1215b6 !important ;
+    box-shadow: inset;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  nav a:hover {
+    background-color: #42b;
+    color: rgb(175, 67, 67);
+  }
+
+  
