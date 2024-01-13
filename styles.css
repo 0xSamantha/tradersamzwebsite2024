@@ -5,7 +5,7 @@
   }
   
   header {
-    background-color: #bf5dc1;
+    background-color: #edb023;
     color: #897f7f;
     padding: 1rem;
     text-align: center;
@@ -16,18 +16,24 @@
   }
   
   body {
-    background-color: #D6A7D6;
+    background-color: #e9e764;
     font-family: Arial, sans-serif;
     color: #000000;
     text-shadow: 1px 1px #ffffff;
-    background-image: url("windows95-wallpaper.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
   }
+
+  .home-applications {
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#000000;
+    text-shadow: 1px 1px #ffffff;
+  }
   
   nav {
-    background-color: #1215b6 !important ;
+    background-color: #75efe5d0 !important ;
     box-shadow: inset;
     padding: 0.5rem;
     position: fixed;
