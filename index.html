@@ -1,57 +1,163 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>welcome to tradersamz' coding portfolio</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1>hi, im sam!</h1>
-      <h2>nice to meet you.</h2>
-    </header>
-    <nav>
-      <ul>
-        <li><a href="#start">start</a></li>
-        <li>music n stuff</li>
-        <li>crypto thinkin</li>
-        <li>cooking</li>
-        <li>coding study guides</li>
-        <li>x post suggestions!</li>
-        <li>send a thank you! </li>
-        <li>contact</li>
-        <li></li>
-      </ul>
-    </nav>
-    <main>
-      <section id="about-me" class="home-applications">
-        <h2><a href="#about-me"">about me</a></h2>
-        <div id="aboutme-content" class="toggle-content">
-          <p>my info</p>
+    <title>Samantha's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="desktop">
+      <a href="#" class="icon" data-window="about">
+          <img src="icons/mycomputer.png" alt="">
+          <span>About Me</span>
+      </a>
+      <a href="https://twitch.tv/tradersams" target="_blank" class="icon">
+          <img src="icons/twitch.png" alt="">
+          <span>Twitch</span>
+      </a>
+      <a href="https://github.com/0xSamantha" target="_blank" class="icon">
+          <img src="icons/terminal.png" alt="">
+          <span>GitHub</span>
+      </a>
+      <a href="#" class="icon" data-window="portfolio">
+          <img src="icons/files.png" alt="">
+          <span>Portfolio</span>
+      </a>
+      <a href="#" class="icon" data-window="learning">
+          <img src="icons/learningcode.png" alt="">
+          <span>Learning</span>
+      </a>
+      <a href="#" class="icon" data-window="social">
+        <img src="icons/internetexplorer.png" alt="Social">
+        <span>Social</span>
+      </a>      
+      <a href="#" class="icon" data-window="services">
+          <img src="icons/services.png" alt="">
+          <span>Services</span>
+      </a>
+      <a href="#" class="icon" data-window="contact">
+          <img src="icons/contact.png" alt="">
+          <span>Contact</span>
+      </a>
+
+    <div id="aboutWindow" class="window">
+        <div class="window-header">
+            <span>About Me</span>
+            <button class="close-btn">&times;</button>
         </div>
-      </section>
-      <section id="projects" class="home-applications">
-        <h2><a href="#projects">projects</a></h2>
-        <div id="project-content">
-          <ul>
-            <li><button>project 1</button></li>
-            <li><button>project 2</button></li>
-            <li><button>project 3</button></li>
-          </ul>
+        <div class="window-content">
+            <h2>Welcome to Samantha's Portfolio</h2>
+            <p>Hi, I'm Samantha! I'm a passionate developer with a love for creating innovative solutions. My expertise includes web development, mobile apps, and game design.</p>
         </div>
-      </section>
-      <section id="contact" class="home-applications">
-        <h2><a href="#contact">contact</a></h2>
-        <div id="contact-content">
-          <p>twitter: tradersamz</p>
-          <p>github : 0xSamantha</p>
+    </div>
+
+    <div id="learningWindow" class="window">
+        <div class="window-header">
+            <span>Learning Resources</span>
+            <button class="close-btn">&times;</button>
         </div>
-      </section>
-    </main>
-    <footer>
-      <p>created from scratch (and with love) by tradersamz</p>
-    </footer>    
+        <div class="window-content">
+            <h2>Recommended Learning Links</h2>
+            <ul>
+                <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+                <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+                <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+                <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="servicesWindow" class="window">
+        <div class="window-header">
+            <span>Freelance Services</span>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="window-content">
+            <h2>My Services</h2>
+            <ul>
+                <li>Web Development</li>
+                <li>Mobile App Development</li>
+                <li>Game Design</li>
+                <li>UI/UX Design</li>
+            </ul>
+            <p>Contact me for more information on pricing and availability.</p>
+        </div>
+    </div>
+
+    <div id="contactWindow" class="window">
+      <div class="window-header">
+          <span>Contact Me</span>
+          <button class="close-btn" onclick="closeWindow('contactWindow')">&times;</button>
+      </div>
+      <div class="window-content">
+          <h2>Get in Touch</h2>
+          <div class="contact-info">
+              <p>Email: samantha@example.com</p>
+              <p>Twitter: @tradersamz</p>
+              <p>LinkedIn: linkedin.com/in/samanthadev</p>
+          </div>
+          <h3>Send a Message</h3>
+          <form id="contactForm">
+              <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send</button>
+          </form>
+      </div>
+  </div>
+
+    <div class="taskbar">
+      <div class="start-button" onclick="toggleStartMenu()">Start</div>
+      <div class="taskbar-spacer"></div>
+      <div id="clock" class="taskbar-clock"></div>
+  </div>
+
+  <div class="start-menu">
+      <a href="#" data-window="about">
+          <img src="icons/mycomputer.png" alt="">
+          About Me
+      </a>
+      <a href="https://twitch.tv/tradersams" target="_blank">
+          <img src="icons/twitch.png" alt="">
+          Twitch
+      </a>
+      <a href="https://github.com/0xSamantha" target="_blank">
+          <img src="icons/terminal.png" alt="">
+          GitHub
+      </a>
+      <a href="#" data-window="portfolio">
+          <img src="icons/files.png" alt="">
+          Portfolio
+      </a>
+      <a href="#" data-window="learning">
+          <img src="icons/learningcode.png" alt="">
+          Learning
+      </a>
+      <a href="#" class="icon" data-window="social">
+        <img src="icons/internetexplorer.png" alt="Social">
+        <span>Social</span>
+      </a>
+      <a href="#" data-window="services">
+          <img src="icons/services.png" alt="">
+          Services
+      </a>
+      <a href="#" data-window="contact">
+          <img src="icons/contact.png" alt="">
+          Contact
+      </a>
+  </div>
+
+  
 </body>
 </html>

@@ -1,67 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --windows-bg: #008080;
+    --window-bg: #c0c0c0;
+    --window-header: #000080;
+    --text-color: #000000;
+}
+
 * {
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
-    background-color: #edb023;
-    color: #897f7f;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  body {
-    background-color: #e9e764;
-    font-family: Arial, sans-serif;
-    color: #000000;
-    text-shadow: 1px 1px #ffffff;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
+}
 
-  .home-applications {
-    background-color: aquamarine;
-    font-family: Arial, Helvetica, sans-serif;
-    color:#000000;
-    text-shadow: 1px 1px #ffffff;
-  }
-  
-  nav {
-    background-color: #75efe5d0 !important ;
-    box-shadow: inset;
-    padding: 0.5rem;
+body {
+    font-family: 'VT323', monospace;
+    background-color: var(--windows-bg);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px 20px 40px;
+}
+
+.desktop {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 20px;
+    gap: 20px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+}
+
+.desktop-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    width: 80px;
+    height: 100px;
+}
+
+.icon img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+}
+
+.icon span {
+    font-size: 14px;
+    word-wrap: break-word;
+    max-width: 100%;
+    line-height: 1.2;
+}
+
+.window {
+    background-color: var(--window-bg);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: none;
+}
+
+.window-header {
+    background-color: var(--window-header);
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 20px;
+}
+
+.taskbar {
+    background-color: var(--window-bg);
+    border-top: 2px solid #ffffff;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 40px;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav li {
-    display: inline-block;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem;
-  }
-  
-  nav a:hover {
-    background-color: #42b;
-    color: rgb(175, 67, 67);
-  }
+}
 
-  
+.start-button {
+    background-color: var(--window-bg);
+    border: 2px outset #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.taskbar-spacer {
+    flex-grow: 1;
+}
+
+.taskbar-clock {
+    background-color: var(--window-bg);
+    border: 2px inset #ffffff;
+    padding: 2px 5px;
+    font-size: 16px;
+    min-width: 85px;
+    text-align: center;
+}
+
+.start-menu {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    background-color: var(--window-bg);
+    border: 2px solid #ffffff;
+    border-bottom: none;
+    box-shadow: 2px -2px #808080;
+    display: none;
+    flex-direction: column;
+    padding: 5px;
+    z-index: 999;
+}
+
+.start-menu a {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.start-menu a:hover {
+    background-color: var(--window-header);
+    color: white;
+}
+
+.start-menu img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 5px;
+    border: 2px inset #ffffff;
+    background-color: #ffffff;
+    font-family: 'VT323', monospace;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--window-bg);
+    border: 2px outset #ffffff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+}
+
+.submit-btn:active {
+    border-style: inset;
+}
+
+.ie-window {
+  width: 800px;
+  height: 600px;
+}
+
+.ie-window .window-header {
+  display: flex;
+  align-items: center;
+}
+
+.ie-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.ie-toolbar {
+  background-color: #d4d0c8;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.ie-btn {
+  background-color: #d4d0c8;
+  border: 1px solid #888;
+  margin-right: 5px;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+
+.ie-address-bar {
+  flex-grow: 1;
+  margin: 0 5px;
+  border: 1px solid #888;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+
+.ie-content {
+  background-color: #fff;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+  color: #000080;
+}
+
+@media (max-width: 768px) {
+    .desktop {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .desktop-column {
+        gap: 10px;
+        width: 80px;
+    }
+
+    .icon {
+        width: 70px;
+        height: 90px;
+    }
+
+    .icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon span {
+        font-size: 12px;
+    }
+
+    .window {
+        width: 95%;
+    }
+}
