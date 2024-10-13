@@ -30,9 +30,9 @@
           <span>Learning</span>
       </a>
       <a href="#" class="icon" data-window="social">
-        <img src="icons/internetexplorer.png" alt="Social">
+        <img src="icons/internetexplorer.png" alt="">
         <span>Social</span>
-      </a>      
+    </a>    
       <a href="#" class="icon" data-window="services">
           <img src="icons/services.png" alt="">
           <span>Services</span>
@@ -116,6 +116,7 @@
           </form>
       </div>
   </div>
+  </div>
 
     <div class="taskbar">
       <div class="start-button" onclick="toggleStartMenu()">Start</div>
@@ -144,9 +145,9 @@
           <img src="icons/learningcode.png" alt="">
           Learning
       </a>
-      <a href="#" class="icon" data-window="social">
-        <img src="icons/internetexplorer.png" alt="Social">
-        <span>Social</span>
+      <a href="#" data-window="social">
+        <img src="icons/internetexplorer.png" alt="">
+          Social
       </a>
       <a href="#" data-window="services">
           <img src="icons/services.png" alt="">
@@ -156,7 +157,30 @@
           <img src="icons/contact.png" alt="">
           Contact
       </a>
+      <div class="start-menu-footer">
+        <a href="#" class="shut-down-option">
+            <img src="icons/shutdown.png" alt="Shut Down">
+            Shut Down
+        </a>
+    </div>
   </div>
+  
+
+
+<div class="shut-down-dialog">
+<div class="window-header">
+    <span>Shut Down Windows</span>
+    <button class="close-btn">&times;</button>
+</div>
+<div class="window-content">
+    <p>What do you want the computer to do?</p>
+    <div class="button-group">
+        <button id="shut-down-btn">Shut Down</button>
+        <button id="time-travel-btn">Time Travel</button>
+        <button id="cancel-btn">Cancel</button>
+    </div>
+</div>
+</div>
 
   
 </body>

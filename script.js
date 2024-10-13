@@ -2,63 +2,81 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.querySelector('.start-button');
     const startMenu = document.querySelector('.start-menu');
     const desktop = document.querySelector('.desktop');
+    let currentEra = 'modern';
 
+    // Start menu toggle
     startButton.addEventListener('click', () => {
         startMenu.style.display = startMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // close start menu when clicking outside
+    // Close start menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!startButton.contains(e.target) && !startMenu.contains(e.target)) {
             startMenu.style.display = 'none';
         }
     });
 
-    // open windows from start menu
-    startMenu.querySelectorAll('a[data-window]').forEach(link => {
-        link.addEventListener('click', (e) => {
+    // Open windows from start menu and desktop
+    document.querySelectorAll('.icon[data-window], .start-menu a[data-window]').forEach(item => {
+        item.addEventListener('click', (e) => {
             e.preventDefault();
-            const windowId = link.getAttribute('data-window') + 'Window';
-            document.getElementById(windowId).style.display = 'block';
+            const windowId = item.getAttribute('data-window') + 'Window';
+            openWindow(item.getAttribute('data-window'));
             startMenu.style.display = 'none';
         });
     });
 
-    // window opening & closing logic
-    desktop.querySelectorAll('.icon[data-window]').forEach(icon => {
-        icon.addEventListener('click', (e) => {
-            e.preventDefault();
-            const windowId = icon.getAttribute('data-window') + 'Window';
-            document.getElementById(windowId).style.display = 'block';
-        });
-    });
-
+    // Close windows
     document.querySelectorAll('.close-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.closest('.window').style.display = 'none';
         });
     });
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // get form values
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var message = document.getElementById('message').value;
-        
-        // NEED TO STILL ADD EMAIL SERVER *********************
-        console.log('Form submitted:');
-        console.log('Name:', name);
-        console.log('Email:', email);
-        console.log('Message:', message);
-        
-        // clear the form
-        this.reset();
-        
-        // show a confirmation message
-        alert('Thank you for your message! We will get back to you soon.');
-    });
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Form submitted:', {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            });
+            this.reset();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+    }
+
+    // Shutdown dialog
+    const shutDownOption = document.querySelector('.shut-down-option');
+    const shutDownDialog = document.querySelector('.shut-down-dialog');
+    
+    if (shutDownOption && shutDownDialog) {
+        shutDownOption.addEventListener('click', (e) => {
+            e.preventDefault();
+            shutDownDialog.style.display = 'block';
+            startMenu.style.display = 'none';
+        });
+
+        shutDownDialog.querySelector('.close-btn').addEventListener('click', () => {
+            shutDownDialog.style.display = 'none';
+        });
+
+        document.getElementById('shut-down-btn').addEventListener('click', () => {
+            alert('Shutting down... (Not really, this is just a simulation!)');
+            shutDownDialog.style.display = 'none';
+        });
+
+        document.getElementById('time-travel-btn').addEventListener('click', () => {
+            timeTravel();
+            shutDownDialog.style.display = 'none';
+        });
+
+        document.getElementById('cancel-btn').addEventListener('click', () => {
+            shutDownDialog.style.display = 'none';
+        });
+    }
 
     function openWindow(windowId) {
         if (windowId === 'social') {
@@ -78,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="ie-btn">Forward</button>
                         <button class="ie-btn">Refresh</button>
                         <button class="ie-btn">Home</button>
-                        <input type="text" class="ie-address-bar" value="http://www.friendster.com/samanthadev" readonly>
+                        <input type="text" class="ie-address-bar" value="http://www.friendster.com/samanthac" readonly>
                         <button class="ie-btn">Go</button>
                     </div>
                     <div class="window-content ie-content">
@@ -88,9 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.appendChild(ieWindow);
     
                 const closeBtn = ieWindow.querySelector('.close-btn');
-                closeBtn.onclick = () => closeWindow('ieWindow');
+                closeBtn.onclick = () => ieWindow.style.display = 'none';
     
-                // Simulate page loading
                 setTimeout(() => {
                     fetch('friendster.html')
                         .then(response => response.text())
@@ -98,64 +115,39 @@ document.addEventListener('DOMContentLoaded', () => {
                             ieWindow.querySelector('.ie-content').innerHTML = html;
                         })
                         .catch(error => console.error('Error loading Friendster profile:', error));
-                }, 1500); // Simulate a 1.5 second load time
+                }, 1500);
             }
             ieWindow.style.display = 'block';
         } else {
-            // Handle other windows as before
             let window = document.getElementById(windowId + 'Window');
             if (window) {
                 window.style.display = 'block';
             }
         }
     }
-    
-    // Function to close windows
-    function closeWindow(windowId) {
-        let window = document.getElementById(windowId);
-        if (window) {
-            window.style.display = 'none';
+
+    function timeTravel() {
+        if (currentEra === 'modern') {
+            currentEra = 'windows95';
+        } else if (currentEra === 'windows95') {
+            currentEra = 'windowsxp';
+        } else {
+            currentEra = 'modern';
         }
+        document.body.className = currentEra;
+        console.log('Time traveled to:', currentEra);
     }
-    
-    // Function to toggle start menu
-    function toggleStartMenu() {
-        const startMenu = document.querySelector('.start-menu');
-        startMenu.style.display = startMenu.style.display === 'block' ? 'none' : 'block';
-    }
-    
-    // Add event listeners to all elements with data-window attribute
-    document.querySelectorAll('[data-window]').forEach(element => {
-        element.addEventListener('click', (e) => {
-            e.preventDefault();
-            openWindow(element.getAttribute('data-window'));
-        });
-    });
-    
-    // Close button functionality for all windows
-    document.querySelectorAll('.close-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            let window = this.closest('.window');
-            if (window) {
-                window.style.display = 'none';
-            }
-        });
-    });
-    
-    // Update clock
+
     function updateClock() {
         const now = new Date();
         let hours = now.getHours();
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
+        hours = hours % 12 || 12;
         const timeString = `${hours}:${minutes} ${ampm}`;
         document.getElementById('clock').textContent = timeString;
     }
     
-    // Update clock immediately and then every second
     updateClock();
     setInterval(updateClock, 1000);
-
 });

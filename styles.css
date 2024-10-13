@@ -5,6 +5,7 @@
     --window-bg: #c0c0c0;
     --window-header: #000080;
     --text-color: #000000;
+    --start-menu-width: 200px;
 }
 
 * {
@@ -146,37 +147,131 @@ body {
 }
 
 .start-menu {
-    position: fixed;
-    bottom: 40px;
-    left: 0;
-    background-color: var(--window-bg);
-    border: 2px solid #ffffff;
-    border-bottom: none;
-    box-shadow: 2px -2px #808080;
-    display: none;
-    flex-direction: column;
-    padding: 5px;
-    z-index: 999;
+  position: fixed;
+  bottom: 40px; /* Adjust based on your taskbar height */
+  left: 0;
+  width: var(--start-menu-width);
+  background-color: var(--window-bg);
+  border: 2px outset #ffffff;
+  border-bottom: none;
+  box-shadow: 2px -2px #808080;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  font-family: 'VT323', monospace; /* Match the desktop icon font */
 }
 
-.start-menu a {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    text-decoration: none;
-    color: var(--text-color);
+.start-menu-header {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 18px; /* Adjust as needed */
 }
 
-.start-menu a:hover {
-    background-color: var(--window-header);
-    color: white;
+.start-menu-items {
+  padding: 5px 0;
+  flex-grow: 1;
 }
 
-.start-menu img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+.start-menu a,
+.start-menu-footer .shut-down-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 16px; /* Match or adjust based on your desktop icon font size */
 }
+
+.start-menu a:hover,
+.start-menu-footer .shut-down-option:hover {
+  background-color: var(--window-header);
+  color: white;
+}
+
+.start-menu img,
+.start-menu-footer .shut-down-option img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.start-menu span {
+  color: white; /* Ensure text is visible on the blue background when not hovered */
+}
+
+.start-menu a:hover span {
+  color: white; /* Ensure text remains white when hovered */
+}
+
+.start-menu-footer {
+  border-top: 1px solid #808080;
+  padding: 5px 0;
+}
+
+.shut-down-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.shut-down-option:hover {
+  background-color: var(--window-header);
+  color: white;
+}
+
+.shut-down-option img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* ... (keep all existing styles after .start-menu) ... */
+
+.shut-down-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: var(--window-bg);
+  border: 2px outset #ffffff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.shut-down-dialog .window-content {
+  padding: 20px;
+}
+
+.shut-down-dialog select,
+.shut-down-dialog button {
+  margin-top: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.button-group button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: var(--window-bg);
+  border: 2px outset #ffffff;
+  cursor: pointer;
+}
+
+.button-group button:active {
+  border-style: inset;
+}
+
 
 .contact-info {
     margin-bottom: 20px;
