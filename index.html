@@ -8,6 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+  <div id="windows95Background" class="os-background active"></div>
+  <div id="windowsXPBackground" class="os-background"></div>
+  <div id="macOSBackground" class="os-background"></div>
     <div class="desktop">
       <a href="#" class="icon" data-window="about">
           <img src="icons/mycomputer.png" alt="">
@@ -89,7 +92,7 @@
     <div id="contactWindow" class="window">
       <div class="window-header">
           <span>Contact Me</span>
-          <button class="close-btn" onclick="closeWindow('contactWindow')">&times;</button>
+          <button class="close-btn">&times;</button>
       </div>
       <div class="window-content">
           <h2>Get in Touch</h2>
@@ -124,7 +127,7 @@
       <div id="clock" class="taskbar-clock"></div>
   </div>
 
-  <div class="start-menu">
+  <div id="startMenu" class="start-menu">
       <a href="#" data-window="about">
           <img src="icons/mycomputer.png" alt="">
           About Me
@@ -167,21 +170,22 @@
   
 
 
-<div class="shut-down-dialog">
-<div class="window-header">
-    <span>Shut Down Windows</span>
-    <button class="close-btn">&times;</button>
-</div>
-<div class="window-content">
-    <p>What do you want the computer to do?</p>
-    <div class="button-group">
-        <button id="shut-down-btn">Shut Down</button>
-        <button id="time-travel-btn">Time Travel</button>
-        <button id="cancel-btn">Cancel</button>
+  <div class="shut-down-dialog">
+    <div class="window-header">
+        <span>Shut Down Windows</span>
+        <button class="close-btn">&times;</button>
+    </div>
+    <div class="window-content">
+        <p>What do you want the computer to do?</p>
+        <div class="button-group">
+            <button id="shut-down-btn">Shut Down</button>
+            <button id="time-travel-btn">Time Travel</button>
+            <button id="cancel-btn">Cancel</button>
+            <!-- The "Take me back" button will be added dynamically when needed -->
+        </div>
     </div>
 </div>
-</div>
 
-  
+<div id="socialPlatformContainer"></div>
 </body>
 </html>
