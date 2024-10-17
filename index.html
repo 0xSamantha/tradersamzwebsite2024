@@ -120,11 +120,22 @@
       </div>
   </div>
   </div>
+  <div class="menu-bar">
+    <span class="apple-logo">🍎</span>
+    <!-- Other menu items -->
+</div>
 
-    <div class="taskbar">
-      <div class="start-button" onclick="toggleStartMenu()">Start</div>
-      <div class="taskbar-spacer"></div>
-      <div id="clock" class="taskbar-clock"></div>
+  <div class="taskbar">
+    <div class="start-button">Start</div>
+    <div class="apple-menu-button" style="display: none;">🍎</div>
+    <div id="apple-menu" class="apple-menu">
+      <a href="#" data-window="about">About This Mac</a>
+      <a href="#" data-window="systemPreferences">System Preferences</a>
+      <div class="menu-separator"></div>
+      <a href="#" class="apple-menu-shutdown">Shut Down</a>
+    </div>
+    <div class="dock"></div>
+    <div id="clock" class="taskbar-clock"></div>
   </div>
 
   <div id="startMenu" class="start-menu">
@@ -170,21 +181,21 @@
   
 
 
-  <div class="shut-down-dialog">
+  <div id="shut-down-dialog" class="shut-down-dialog" style="display: none;">
     <div class="window-header">
-        <span>Shut Down Windows</span>
-        <button class="close-btn">&times;</button>
+      Shut Down Windows
+      <button class="close-btn">&times;</button>
     </div>
     <div class="window-content">
-        <p>What do you want the computer to do?</p>
-        <div class="button-group">
-            <button id="shut-down-btn">Shut Down</button>
-            <button id="time-travel-btn">Time Travel</button>
-            <button id="cancel-btn">Cancel</button>
-            <!-- The "Take me back" button will be added dynamically when needed -->
-        </div>
+      <p>Are you sure you want to shut down?</p>
+      <div class="button-group">
+        <button id="shut-down-btn">Shut Down</button>
+        <button id="time-travel-btn">Time Travel</button>
+        <button id="cancel-btn">Cancel</button>
+        <button id="take-me-back-btn">Take me back</button>
+      </div>
     </div>
-</div>
+  </div>
 
 <div id="socialPlatformContainer"></div>
 </body>

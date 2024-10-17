@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Samantha's Y2K MySpace</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #FFD1DC;
+            color: #FF69B4;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/glitter/1.0.0/glitter.min.css');
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFF0F5;
+            border: 3px solid #FF69B4;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #FF1493;
+            text-shadow: 2px 2px #FFB6C1;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #FF69B4;
+            display: block;
+            margin: 0 auto;
+        }
+        .sparkle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('/api/placeholder/20/20');
+            background-size: contain;
+            animation: sparkle 1s infinite;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #FFECF5;
+            border: 2px dashed #FF69B4;
+            border-radius: 5px;
+        }
+        .friends-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .friend {
+            text-align: center;
+        }
+        .friend img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="sparkle"></span> Samantha's MySpace <span class="sparkle"></span></h1>
+        <img src="/api/placeholder/200/200" alt="Samantha's Profile" class="profile-pic">
+        
+        <div class="section">
+            <h2><span class="sparkle"></span> About Me <span class="sparkle"></span></h2>
+            <p>Hey there! I'm Samantha, a 90s kid with a passion for all things tech and retro. When I'm not coding, you can find me collecting Tamagotchis and jamming to Britney Spears!</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="sparkle"></span> Mood <span class="sparkle"></span></h2>
+            <p>Feeling: Totally rad! 😎✨</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="sparkle"></span> Top 8 Friends <span class="sparkle"></span></h2>
+            <div class="friends-list">
+                <div class="friend">
+                    <img src="/api/placeholder/50/50" alt="Friend 1">
+                    <p>BFF Jess</p>
+                </div>
+                <div class="friend">
+                    <img src="/api/placeholder/50/50" alt="Friend 2">
+                    <p>Coder Mike</p>
+                </div>
+                <div class="friend">
+                    <img src="/api/placeholder/50/50" alt="Friend 3">
+                    <p>Gamer Girl</p>
+                </div>
+                <div class="friend">
+                    <img src="/api/placeholder/50/50" alt="Friend 4">
+                    <p>DJ Sparkle</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="sparkle"></span> Fave Songs <span class="sparkle"></span></h2>
+            <ol>
+                <li>...Baby One More Time - Britney Spears</li>
+                <li>I Want It That Way - Backstreet Boys</li>
+                <li>Genie in a Bottle - Christina Aguilera</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2><span class="sparkle"></span> Comments <span class="sparkle"></span></h2>
+            <p><strong>TechGuru99:</strong> Your page is so cool, Samantha! Love the Y2K vibes! 💖</p>
+            <p><strong>PixelPrincess:</strong> OMG, I miss the old MySpace days! This is perfect! 🌟</p>
+        </div>
+    </div>
+</body>
+</html>

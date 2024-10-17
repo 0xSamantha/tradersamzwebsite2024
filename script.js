@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktop = document.querySelector('.desktop');
     let currentEra = 'windows95';
 
+    // Create menu bar if it doesn't exist
     if (!document.querySelector('.menu-bar')) {
         const menuBar = document.createElement('div');
         menuBar.className = 'menu-bar';
@@ -35,19 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
         appleMenu = document.querySelector('.apple-menu');
     }
 
-    // Apple logo click event
-   const appleLogo = document.querySelector('.apple-logo');
-    appleLogo.addEventListener('click', (e) => {
+    // Event listeners
+    document.querySelector('.apple-logo').addEventListener('click', (e) => {
         e.stopPropagation();
         appleMenu.style.display = appleMenu.style.display === 'flex' ? 'none' : 'flex';
     });
     
-    // Close Apple menu when clicking outside
     document.addEventListener('click', () => {
         appleMenu.style.display = 'none';
     });
 
-    // Handle Apple menu item clicks
     appleMenu.addEventListener('click', (e) => {
         e.preventDefault();
         const target = e.target;
@@ -59,19 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
         appleMenu.style.display = 'none';
     });
 
-    // Start menu toggle
     startButton.addEventListener('click', () => {
         startMenu.style.display = startMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Close start menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!startButton.contains(e.target) && !startMenu.contains(e.target)) {
             startMenu.style.display = 'none';
         }
     });
 
-    // Open windows from start menu and desktop
     document.querySelectorAll('.icon[data-window], .start-menu a[data-window]').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -81,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close windows
     document.querySelectorAll('.close-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.closest('.window').style.display = 'none';
@@ -105,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Shutdown dialog
     const shutDownOption = document.querySelector('.shut-down-option');
-    const shutDownDialog = document.querySelector('.shut-down-dialog');
-    
+    const shutDownDialog = document.getElementById('shut-down-dialog');
+
     if (shutDownOption && shutDownDialog) {
         shutDownOption.addEventListener('click', (e) => {
             e.preventDefault();
@@ -125,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('time-travel-btn').addEventListener('click', () => {
             timeTravel();
+            shutDownDialog.style.display = 'none';
         });
 
         document.getElementById('cancel-btn').addEventListener('click', () => {
@@ -231,12 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonGroup.appendChild(takeMeBackBtn);
     }
 
-    
-
     function updateLayoutForEra() {
         const startButton = document.querySelector('.start-button');
         const taskbar = document.querySelector('.taskbar');
-        const desktop = document.querySelector('.desktop');
         const menuBar = document.querySelector('.menu-bar');
         const dock = document.querySelector('.dock');
         const appleLogo = document.querySelector('.apple-logo');
@@ -300,19 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const socialText = document.querySelector('.icon[data-window="social"] span');
         
         if (socialIcon && socialText) {
-            if (currentEra === 'windows95') {
-                socialIcon.src = 'icons/friendster.png';
-                socialText.textContent = 'Friendster';
-            } else if (currentEra === 'windowsxp') {
-                socialIcon.src = 'icons/myspace.png';
-                socialText.textContent = 'MySpace';
-            } else {
-                socialIcon.src = 'icons/facebook.png';
-                socialText.textContent = 'Facebook';
-            }
+            socialIcon.src = 'icons/internetexplorer.png';
+            socialText.textContent = 'Social';
         }
     }
-
+    
     function updateClock() {
         const now = new Date();
         let hours = now.getHours();
@@ -326,6 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Call updateLayoutForEra when the page loads
+    // Initialize layout
     updateLayoutForEra();
 });
